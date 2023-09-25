@@ -1,0 +1,474 @@
+
+.Header_Nav, .home-page-class{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 7%;
+    
+    img{
+        height: 4rem;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem 7%;
+        gap: 2rem;
+    }
+    a{
+        text-decoration: none;
+    }
+    h3{
+        font-family: Inter;
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .active h3{
+        color: #0057FF;
+    }
+}
+.Home{
+    .Home_Hero{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 12% 0;
+        background-image: url('../Assets/Images/BackGroundComplexite.png');
+        position: relative;
+        .ShadowHero{
+            position: absolute;
+            right: 10rem;
+            top: 50%; 
+            transform: translateY(-50%);
+        }
+        .HeroDark{
+            position: absolute;
+            top: 50%; 
+            transform: translateY(-50%);
+            right: 15rem;
+        }
+        .Home_Hero_Text{
+            text-align: left;
+            align-items: start;
+            display: flex;
+            flex-direction: column;
+            h2{
+                font-size: 5rem;
+                font-weight: 300;
+                color: white;
+                margin-block-start: 0em;
+                margin-block-end: 0em;
+                span{
+                    font-weight: 700;
+                } 
+            }
+            h4{
+                font-size: 2.5rem;
+                font-weight: 300;
+                color: white;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+            }
+        }
+    }
+    .Home_Collaborateurs{
+        padding: 9% 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        .Home_Collaborateurs_Text{
+            h4{
+                font-size: 2rem;
+                font-weight: 500;
+                span{
+                    font-weight: 700;
+                } 
+            }
+        }
+        .Home_Collaborateurs_Img{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            img{
+                height: 4rem;
+            }
+        }
+    }
+    .Home_Presentation{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        .Home_Presentation_Text{
+            text-align: left;
+            width: 50%;
+            align-items: center;
+            padding: 0 7%;
+            h3{
+                font-size: 2rem;
+                font-weight: 500;
+            }
+            p{
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+            input{
+                margin-top: 4rem;
+            }
+        }
+        .Home_Presentation_Img{
+            width: 50%;
+        }
+    }
+    .Home_Quality{
+        margin: 12rem 0;
+        .Home_Quality_Header{
+            h2{
+                font-size: 3rem;
+                margin: none !important;
+            }
+            h3{
+                font-size: 2rem;
+                color: #0057FF;
+                margin: none !important;
+            }
+        }
+    }
+    .Home_Quality_Content, .Home_EnhancedSecurity, .Home_VerifiedCompliance, .Home_AdvancedAutomation{
+        margin: 6rem 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+        .Home_Quality_Text, .Home_EnhancedSecurity_Text, .Home_VerifiedCompliance_Text, .Home_AdvancedAutomation_Text{
+            h3{
+                font-size: 2.5rem;
+                color: black;
+            }
+            h4{
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: black;
+            }
+            .Home_Quality_Text_Content, .Home_EnhancedSecurity_Text_Content, .Home_VerifiedCompliance_Text_Content, .Home_AdvancedAutomation_Text_Content{
+                display: flex;
+                align-items: flex-start;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                h5{
+                    color: #0057FF;
+                    font-size: 1.2rem;
+                    margin-block-start: 0 !important;
+                    margin-block-end: 1rem !important;
+                }
+                p{
+                    color: black;
+                }
+            }
+        }
+    }
+    .Home_VerifiedCompliance{
+        justify-content: start;
+    }
+    .Home_EnhancedSecurity, .Home_VerifiedCompliance {
+        width: 100%;
+        .Home_EnhancedSecurity_Content{
+            display: flex;
+        }
+        .Home_EnhancedSecurity_Img, .Home_VerifiedCompliance_Img{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            
+            img{
+                width: 90%;
+            }
+        }
+        .Home_EnhancedSecurity_Text, .Home_VerifiedCompliance_Text{
+            width: 35%;
+            padding: 0 5%;
+        }
+    }
+    .Home_Contact{
+        background-color: black;
+        padding: 10rem 7%;
+        display: flex;
+        margin-top: 10rem;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .number-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .number-button {
+            border: 2px solid blue;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            &.active {
+                background-color: blue;
+                color: white;
+                border-color: blue;
+            }
+        }
+        h2,p,label{
+            color: white;
+            text-align: left;
+        }
+        h2{
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        p{
+            font-size: 1.2rem;
+        }
+        label{
+            opacity: 0.6;
+            margin: 1rem 0;
+        }
+        input {
+            display: block;
+            margin-bottom: 2rem;
+            padding: 10px;
+            border: none;
+            height: 2rem;
+            border-radius: 4px;
+        }
+        .name-inputs{
+            display: flex;
+            gap: 1rem;
+            div{
+                input{
+                    margin: 1rem 0;
+                }
+            }
+        }
+        button[type="submit"] {
+            padding: 1.5rem 2rem;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .Home_Contact_Img{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 50%;
+            }
+        }
+    }
+}
+
+.Home_AdvancedAutomation, .Home_Quality{
+    padding: 7%;
+}
+.Home_AdvancedAutomation_Text{
+    padding: 10rem;
+}
+
+.Footer{
+    height: 30vh;
+    padding: 7% 0 2% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+        width: 10rem;
+    }
+}
+
+.home-page-class{
+    background-image: url('../Assets/Images/BackGroundComplexite.png');
+    h3{
+        font-family: Inter;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+}
+
+
+.Pricing{
+    .Pricing_Hero{
+        width: 100%;
+        padding: 4rem 0;
+        display: flex;
+        justify-content: center;
+        .Pricing_Hero_Text{
+            padding: 0 7%;
+            width: 50%;
+            text-align: left;
+            h1{
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: black;
+            }
+            p{
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: black;
+            }
+        }
+        .Pricing_Hero_Cards{
+            width: 50%;
+            padding: 0;
+            .Pricing_Hero_Card{
+                width: 70%;
+                margin-bottom: 1rem;
+                padding: 1.5rem 3rem;
+                border-radius: 1rem;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.095);
+                text-align: left;
+                h4{
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    color: black;
+                    margin-block-start: 1em;
+                    margin-block-end: 1em;
+                }
+                p{
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                    color: black;
+                }
+                input{
+                    font-family: inter;
+                    font-size: 1rem;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 900;
+                    margin-block-end: 1em;
+                }
+            }
+            .Pricing_Hero_Card:hover{
+                background: linear-gradient(#0057FF, #0055ff6f);;
+                color: white;
+                h4{
+                    color: white;
+                }
+                p{
+                    color: white;
+                }
+                input{
+                    color: white;
+                }
+            }
+        }
+    }
+}
+.Products{
+    .Products_Hero{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        .Products_Hero_Text{
+            width: 50%;
+            padding: 0 4% 0 7% ;
+        }
+        .Products_Hero_Img{
+            width: 50%;
+            padding: 0 7%;
+            img{
+                width: 100%;
+            }
+        }
+        h1{
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: black;
+        }
+        h2{
+            font-size: 2rem;
+            font-weight: 300;
+            color: black;
+        }
+        h4{
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: black;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+        }
+    }
+    .Products_GRC, .Products_Finance{
+        margin-top: 12rem;
+        padding: 0 7%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: center;
+        .Products_GRC_Content, .Products_Finance_Content{
+            background-image: url('../Assets/Images/grcBackground.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            padding: 5.8% 0;
+            .Products_GRC_Text, .Products_Finance_Text{
+                width: 50%;
+                color: white;
+                text-align: left;
+                padding: 0 0 0 12%;
+                h3{
+                    font-size: 3rem;
+                    font-weight: 500;
+                }
+                p{
+                    font-size: 1.8rem;
+                    font-weight: 200;
+                }
+            }
+            .Products_Finance_Text{
+                padding: 0 18% 0 0 !important;
+            }
+            .Products_GRC_Img, .Products_Finance_Img{
+                width: 50%;
+                padding: 0 7%;
+            }
+        }
+        .Products_Finance_Content{
+            background-image: url('../Assets/Images/FinanceBackgroud.svg');
+            .Products_Finance_Text{
+                width: 50%;
+                color: black;
+                text-align: left;
+                padding: 0 0 0 12%;
+            }
+        }
+        .Products_GRC_Img{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+    }
+}
+.interligne{
+    width: 80%;
+    height: 2px;
+    background-color: white;
+}
