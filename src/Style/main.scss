@@ -1,4 +1,10 @@
-
+body, html {
+    width: 100%;
+}
+.section {
+    height: 60vh;
+    margin: 6rem 0;
+}
 .Header_Nav, .home-page-class{
     display: flex;
     flex-wrap: wrap;
@@ -22,18 +28,20 @@
         font-family: Inter;
         color: black;
         font-size: 1.2rem;
-        font-weight: 500;
+        font-weight: 600;
     }
     .active h3{
         color: #0057FF;
     }
 }
 .Home{
+    // width: 100vw;
+    overflow-x: hidden;
     .Home_Hero{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        padding: 12% 0;
+        padding: 10% 0 14% 0;
         background-image: url('../Assets/Images/BackGroundComplexite.png');
         position: relative;
         .ShadowHero{
@@ -73,11 +81,11 @@
         }
     }
     .Home_Collaborateurs{
-        padding: 9% 0;
+        padding: 3% 0;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: start;
         .Home_Collaborateurs_Text{
             h4{
                 font-size: 2rem;
@@ -100,6 +108,7 @@
         display: flex;
         width: 100%;
         align-items: center;
+        padding: 5rem 0;
         .Home_Presentation_Text{
             text-align: left;
             width: 50%;
@@ -119,35 +128,36 @@
         }
         .Home_Presentation_Img{
             width: 50%;
+            img{
+                width: 65%;
+            }
         }
     }
-    .Home_Quality{
-        margin: 12rem 0;
-        .Home_Quality_Header{
-            h2{
-                font-size: 3rem;
-                margin: none !important;
-            }
-            h3{
-                font-size: 2rem;
-                color: #0057FF;
-                margin: none !important;
-            }
+    .Home_Quality_Header{
+        h2{
+            font-size: 2.5rem;
+            margin: none !important;
+        }
+        h3{
+            font-size: 1.5rem;
+            color: #0057FF;
+            margin: none !important;
         }
     }
     .Home_Quality_Content, .Home_EnhancedSecurity, .Home_VerifiedCompliance, .Home_AdvancedAutomation{
-        margin: 6rem 0;
-        display: flex;
+        display: flex !important;
         justify-content: space-around;
         align-items: center;
         text-align: left;
+        width: 100vw;
+        height: 70vh !important;
         .Home_Quality_Text, .Home_EnhancedSecurity_Text, .Home_VerifiedCompliance_Text, .Home_AdvancedAutomation_Text{
             h3{
-                font-size: 2.5rem;
+                font-size: 2rem;
                 color: black;
             }
             h4{
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 font-weight: 300;
                 color: black;
             }
@@ -155,7 +165,7 @@
                 display: flex;
                 align-items: flex-start;
                 gap: 2rem;
-                margin-bottom: 2rem;
+                margin-bottom: 0.5rem;
                 h5{
                     color: #0057FF;
                     font-size: 1.2rem;
@@ -178,11 +188,12 @@
         }
         .Home_EnhancedSecurity_Img, .Home_VerifiedCompliance_Img{
             width: 50%;
+            padding: 0 0 0 5%;
             display: flex;
             align-items: center;
             
             img{
-                width: 90%;
+                width: 80%;
             }
         }
         .Home_EnhancedSecurity_Text, .Home_VerifiedCompliance_Text{
@@ -192,7 +203,7 @@
     }
     .Home_Contact{
         background-color: black;
-        padding: 10rem 7%;
+        padding: 10rem 12%;
         display: flex;
         margin-top: 10rem;
         form{
@@ -206,7 +217,7 @@
             margin-bottom: 20px;
         }
         .number-button {
-            border: 2px solid blue;
+            border: 2px solid #0057FF;
             background-color: black;
             color: white;
             border-radius: 50%;
@@ -219,9 +230,9 @@
             justify-content: center;
             transition: all 0.3s;
             &.active {
-                background-color: blue;
+                background-color: #0057FF;
                 color: white;
-                border-color: blue;
+                border-color: #0057FF;
             }
         }
         h2,p,label{
@@ -258,7 +269,7 @@
         }
         button[type="submit"] {
             padding: 1.5rem 2rem;
-            background-color: blue;
+            background-color: #0057FF;
             color: white;
             border: none;
             border-radius: 4px;
@@ -280,12 +291,18 @@
         }
     }
 }
-
-.Home_AdvancedAutomation, .Home_Quality{
-    padding: 7%;
+.Home_AdvancedAutomation_Img{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        width: 70%;
+    }
 }
 .Home_AdvancedAutomation_Text{
-    padding: 10rem;
+    padding: 0 0 0 10rem;
+    width: 50%;
 }
 
 .Footer{
@@ -310,72 +327,130 @@
     }
 }
 
-
 .Pricing{
+    overflow: hidden;
+}
+.Pricing, .Contact{
     .Pricing_Hero{
         width: 100%;
-        padding: 4rem 0;
+        padding: 2rem 0;
         display: flex;
         justify-content: center;
-        .Pricing_Hero_Text{
-            padding: 0 7%;
-            width: 50%;
-            text-align: left;
-            h1{
-                font-size: 3.5rem;
-                font-weight: 700;
-                color: black;
-            }
-            p{
-                font-size: 1.5rem;
-                font-weight: 300;
-                color: black;
-            }
-        }
         .Pricing_Hero_Cards{
             width: 50%;
             padding: 0;
-            .Pricing_Hero_Card{
-                width: 70%;
-                margin-bottom: 1rem;
-                padding: 1.5rem 3rem;
-                border-radius: 1rem;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.095);
-                text-align: left;
-                h4{
-                    font-size: 1.5rem;
-                    font-weight: 800;
-                    color: black;
-                    margin-block-start: 1em;
-                    margin-block-end: 1em;
-                }
-                p{
-                    font-size: 1.2rem;
-                    font-weight: 300;
-                    color: black;
-                }
-                input{
-                    font-family: inter;
-                    font-size: 1rem;
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                    font-weight: 900;
-                    margin-block-end: 1em;
+            
+            // .Pricing_Hero_Card:hover{
+            //     background: linear-gradient(#0057FF, #0055ff6f);;
+            //     color: white;
+            //     h4{
+            //         color: white;
+            //     }
+            //     p{
+            //         color: white;
+            //     }
+            //     input{
+            //         color: white;
+            //     }
+            // }
+        }
+    }
+    .Pricing_Hero_Text{
+        padding: 0 7%;
+        width: 50%;
+        text-align: left;
+        h1{
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: black;
+        }
+        p{
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: black;
+        }
+    }
+    .Pricing_Hero_Card, .Contact_Hero_Card{
+        width: 70%;
+        margin-bottom: 1rem;
+        padding: 1rem 3rem;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.095);
+        text-align: left;
+        h4{
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: black;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+        }
+        p{
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: black;
+        }
+        input{
+            font-family: inter;
+            font-size: 1rem;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 900;
+            margin-block-end: 1em;
+        }
+    }
+    .Pricing_Hero_Card, .Contact_Hero_Card{
+        form{
+            div{
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: 1.5rem;
+                div{
+                    display: flex;
+                    flex-direction: column;
                 }
             }
-            .Pricing_Hero_Card:hover{
-                background: linear-gradient(#0057FF, #0055ff6f);;
+            label{
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+            input{
+                border: #0057FF 2px solid;
+                width: 10rem;
+                padding: 0.8rem 1rem;
+                border-radius: 0.5rem;
+                font-size: 0.8rem;
+                font-weight: 300;
+            }
+            input[type="email"]{
+                width: 20rem;
+            }
+            textarea{
+                border: #0057FF 2px solid;
+                padding: 0.8rem 1rem;
+                border-radius: 0.5rem;
+                font-family: inter;
+                font-size: 0.8rem;
+                font-weight: 300;
+                width: 30rem;
+                height: 6rem;
+                display: flex;
+                justify-content: start;
+                align-items: start;
+            }
+            button[type="submit"] {
+                padding: 1.5rem 2rem;
+                background-color: #0057FF;
                 color: white;
-                h4{
-                    color: white;
-                }
-                p{
-                    color: white;
-                }
-                input{
-                    color: white;
-                }
+                border: none;
+                border-radius: 4px;
+                height: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
+                font-size: 1rem;
+                margin-top: 1rem;
             }
         }
     }
@@ -389,7 +464,7 @@
         text-align: left;
         .Products_Hero_Text{
             width: 50%;
-            padding: 0 4% 0 7% ;
+            padding: 0 4% 0 12% ;
         }
         .Products_Hero_Img{
             width: 50%;
@@ -417,16 +492,15 @@
         }
     }
     .Products_GRC, .Products_Finance{
-        margin-top: 12rem;
+        margin: 16rem 0;
         padding: 0 7%;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         align-items: center;
         .Products_GRC_Content, .Products_Finance_Content{
-            background-image: url('../Assets/Images/grcBackground.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
+            background-color: #0057FF;
+            border-radius: 3rem;
             display: flex;
             padding: 5.8% 0;
             .Products_GRC_Text, .Products_Finance_Text{
@@ -449,10 +523,14 @@
             .Products_GRC_Img, .Products_Finance_Img{
                 width: 50%;
                 padding: 0 7%;
+                img{
+                    width: 80%;
+                }
             }
         }
         .Products_Finance_Content{
-            background-image: url('../Assets/Images/FinanceBackgroud.svg');
+            background-color: white;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.095);
             .Products_Finance_Text{
                 width: 50%;
                 color: black;
@@ -471,4 +549,94 @@
     width: 80%;
     height: 2px;
     background-color: white;
+}
+.interligneBlack{
+    width: 80%;
+    height: 2px;
+    background-color: black;
+}
+.slick-track{
+    height: 100vh !important;
+    width: 90vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.carousel-controls button{
+    background-color: transparent;
+    margin: 0rem 1rem 0 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: inter;
+    color: rgba(0, 0, 0, 0.491);
+    font-size: 1rem;
+    font-weight: 300;
+    // text-decoration: underline;
+    // text-underline-offset: 4px;
+}
+.Contact{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    .Contact_Hero_Cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 2rem;
+        width: 50%;
+        padding: 0 0 0 7%;
+        .Contact_Hero_Card{
+            width: auto;
+        }
+        .Contact_Hero_Text{
+            text-align: left;
+            h1{
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: black;
+            }
+            p{
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: black;
+            }
+        }
+    }
+    .Contact_Hero_Img{
+        width: 50%;
+        display: flex;
+        justify-content:end;
+        align-items: center;
+        padding: 0 7% 0 0;
+        img{
+            width: 80%;
+        }
+    }
+}
+.navigation {
+    position: fixed;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-point {
+    width: 10px;
+    height: 10px;
+    background: grey;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-point.active {
+    background: #0057FF;
+}
+
+.slick-track{
+    height: 70vh !important;
 }

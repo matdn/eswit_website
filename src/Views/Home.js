@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Hero from '../Assets/Images/Hero.png';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import HeroDark from '../Assets/Images/HeroDark.png';
 import ShadowHero from '../Assets/Images/ShadowHero.png';
 import ContactLogo from '../Assets/Images/ContactLogo.png';
@@ -15,6 +17,7 @@ import iconCHAT from '../Assets/Images/icon _chat.svg';
 import iconMEDAL from '../Assets/Images/icon _medal.svg';
 import iconROCKET from '../Assets/Images/icon _rocket.svg';
 import iconTOOLS from '../Assets/Images/icon _tools.svg';
+import { Link } from 'react-router-dom';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -24,8 +27,11 @@ class Home extends Component {
                 firstName: '',
                 lastName: '',
                 email: ''
-            }
+            },
+            slideIndex: 0 ,
+            activeSlide: 0
         };
+        this.sliderRef = React.createRef();
     }
     handleNumberClick = (number) => {
         this.setState({ selectedNumber: number });
@@ -44,15 +50,30 @@ class Home extends Component {
         console.log(`Selected Number: ${this.state.selectedNumber}`);
         console.log(`Form Data: ${JSON.stringify(this.state.formData, null, 2)}`);
     };
+    goToSlide = (index) => {
+        this.setState({ slideIndex: index });
+        this.sliderRef.current.slickGoTo(index); // change le slide du carrousel
+    }
     render() {
-        const { selectedNumber, formData } = this.state;
+        const { selectedNumber, formData, slideIndex } = this.state;
+        const settings = {
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            speed: 1200,
+            autoplaySpeed: 15000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            afterChange: current => this.setState({ activeSlide: current, slideIndex: current })
+        };
+        
         return (
             <div className='Home'>
                 <div className='Home_Hero'>
                     <div className='Home_Hero_Text'>
                         <h2>Welcome to <br/><span>eSWIT</span> !</h2>
                         <h4>We believe that using SAP <br/>should be simple and enjoyable.</h4>
-                        <input className="Button" type='button' value='->  Discover our offers'/>
+                        <Link to="/products"><input className="Button" type='button' value='->  Discover our products'/></Link>
                     </div>
                     <div className='Home_Hero_Img'>
                         <img className='ShadowHero' src={ShadowHero}/>
@@ -78,92 +99,101 @@ class Home extends Component {
                     <div className='Home_Presentation_Text'>
                         <h3>As SAP experts, 
                             we understand both the software <br/> and your business needs.</h3>
-                        <p>We know how to create experiences that simplify your most frequent tasks on SAP.
-                            And we expand the SAP coverage with modern features.
+                        <p>We know how to create experiences that simplify your most frequent tasks on SAP
+                            and we expand the SAP coverage with modern features.
                             <br/><br/>
                             But what really sets us apart is our commitment to helping our customers.
-                            We truly care about your success and are always here to help. <br/>That's what makes eSWITs relevant and valuable to our customers.
+                            We truly care about your success and are always here to help. <br/>That's what makes eSWIT relevant and valuable to our customers.
                         </p>
-                        <input className="Button" type='button' value='-> Learn more about us !'/>
+                    
                     </div>
                 </div>
-                <div className='Home_Quality'>
-                    <div className='Home_Quality_Header'>
-                        <h2>Magnify your experience</h2>
-                        <h3>At eSWIT, we are committed to delivering the best experience</h3>
-                    </div>
-                    <div className='Home_Quality_Content'>
-                        <div className='Home_Quality_Text'>
-                            <h3>Validated quality</h3>
-                            <h4>
-                                eSWIT has been thoroughly tested and reviewed, <br/>ensuring that it meets the highest standards of quality.
-                            </h4>
-                            <div className='Home_Quality_Text_Content'>
-                                <img src={iconCHAT}/>
-                                <div>
-                                    <h5>Extensive testing</h5>
-                                    <p>eSWIT has undergone extensive testing <br/>to ensure that it is reliable and effective</p>
-                                </div>
-                            </div>
-                            <div className='Home_Quality_Text_Content'>
-                                <img src={iconMEDAL}/>
-                                <div>
-                                    <h5>Expert review</h5>
-                                    <p>eSWIT has been reviewed by SAP experts, <br/>ensuring that it meets the highest standards of quality.</p>
-                                </div>
-                            </div>
-                            <div className='Home_Quality_Text_Content'>
-                                <img src={iconROCKET}/>
-                                <div>
-                                    <h5>Customer feedback</h5>
-                                    <p>We value our customers' feedback and use <br/>it to continually improve eSWIT</p>
-                                </div>
-                            </div>
-                            <div className='Home_Quality_Text_Content'>
-                                <img src={iconTOOLS}/>
-                                <div>
-                                    <h5>Regular updates </h5>
-                                    <p>We release regular updates to eSWIT, <br/>ensuring that it stays up-to-date and effective.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='Home_Quality_Img'>
-                            <img src={AssetColor}/>
-                        </div>
+                <div className='Home_Quality_Header'>
+                    <h2>Magnify your experience</h2>
+                    <h3>At eSWIT, we are committed to delivering the best experience</h3>
+                    <div className="carousel-controls">
+                        {['Enhanced Security', 'Advanced Automation','Verified Compliance', 'Quality readiness' ].map((solution, index) => (
+                            <button 
+                                key={index}
+                                style={this.state.activeSlide === index ? { color: '#0057FF', cursor: 'pointer' } : { cursor: 'pointer' }}
+                                onClick={() => this.goToSlide(index)}
+                            >
+                                {solution} 
+                            </button>
+                        ))}
                     </div>
                 </div>
-                <div className='Home_EnhancedSecurity'>
-                    <div className='Home_EnhancedSecurity_Content'>
-                        <div className='Home_EnhancedSecurity_Img'>
-                            <img src={EnhancedSecurity}/>
+                <Slider {...settings}  ref={this.sliderRef}>
+                    
+                    <div className='Home_EnhancedSecurity'>
+                        <div className='Home_EnhancedSecurity_Content'>
+                            <div className='Home_EnhancedSecurity_Img'>
+                                <img src={EnhancedSecurity}/>
+                            </div>
+                            <div className='Home_EnhancedSecurity_Text'>
+                                <h3>Enhanced security</h3>
+                                <h4>
+                                    eSWIT helps you keep your SAP system secure,<br/> protecting your business and its data.
+                                </h4>
+                                <div className='Home_EnhancedSecurity_Text_Content'>
+                                    <img src={iconCHAT}/>
+                                    <div>
+                                        <h5>Secured access</h5>
+                                        <p>Provides secure access to your SAP system, <br/>protecting against unauthorized access.</p>
+                                    </div>
+                                </div>
+                                <div className='Home_EnhancedSecurity_Text_Content'>
+                                    <img src={iconMEDAL}/>
+                                    <div>
+                                        <h5>Data protection</h5>
+                                        <p>eSWIT helps you protect your data on SAP, <br/>keeping it safe from external threats.</p>
+                                    </div>
+                                </div>
+                                <div className='Home_EnhancedSecurity_Text_Content'>
+                                    <img src={iconROCKET}/>
+                                    <div>
+                                        <h5>Compliance</h5>
+                                        <p>eSWIT ensures that you are compliant with <br/>relevant security regulations and standards.</p>
+                                    </div>
+                                </div>
+                                <div className='Home_EnhancedSecurity_Text_Content'>
+                                    <img src={iconTOOLS}/>
+                                    <div>
+                                        <h5>Regular updates</h5>
+                                        <p>We release regular updates to eSWIT that include security enhancements,<br/> helping to keep your SAP system secure.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className='Home_EnhancedSecurity_Text'>
-                            <h3>Enhanced security</h3>
+                    </div>
+                    <div className='Home_AdvancedAutomation'>
+                        <div className='Home_AdvancedAutomation_Text'>
+                            <h3>Advanced automation</h3>
                             <h4>
-                                eSWIT helps you keep your SAP system secure,<br/> protecting your business and its data.
+                                eSWIT helps you automate many of your most frequent tasks on SAP,<br/> saving you time and effort.
                             </h4>
-                            <div className='Home_EnhancedSecurity_Text_Content'>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
                                 <img src={iconCHAT}/>
                                 <div>
                                     <h5>Secure access</h5>
                                     <p>Provides secure access to your SAP system, <br/>protecting against unauthorized access.</p>
                                 </div>
                             </div>
-                            <div className='Home_EnhancedSecurity_Text_Content'>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
                                 <img src={iconMEDAL}/>
                                 <div>
                                     <h5>Data protection</h5>
                                     <p>eSWIT helps you protect your data on SAP, <br/>keeping it safe from external threats.</p>
                                 </div>
                             </div>
-                            <div className='Home_EnhancedSecurity_Text_Content'>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
                                 <img src={iconROCKET}/>
                                 <div>
                                     <h5>Compliance</h5>
                                     <p>eSWIT ensures that you are compliant with <br/>relevant security regulations and standards.</p>
                                 </div>
                             </div>
-                            <div className='Home_EnhancedSecurity_Text_Content'>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
                                 <img src={iconTOOLS}/>
                                 <div>
                                     <h5>Regular updates</h5>
@@ -171,86 +201,91 @@ class Home extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className='Home_AdvancedAutomation'>
-                    <div className='Home_AdvancedAutomation_Text'>
-                        <h3>Advanced automation</h3>
-                        <h4>
-                            eSWIT helps you automate many of your most frequent tasks on SAP,<br/> saving you time and effort.
-                        </h4>
-                        <div className='Home_AdvancedAutomation_Text_Content'>
-                            <img src={iconCHAT}/>
-                            <div>
-                                <h5>Secure access</h5>
-                                <p>Provides secure access to your SAP system, <br/>protecting against unauthorized access.</p>
-                            </div>
-                        </div>
-                        <div className='Home_AdvancedAutomation_Text_Content'>
-                            <img src={iconMEDAL}/>
-                            <div>
-                                <h5>Data protection</h5>
-                                <p>eSWIT helps you protect your data on SAP, <br/>keeping it safe from external threats.</p>
-                            </div>
-                        </div>
-                        <div className='Home_AdvancedAutomation_Text_Content'>
-                            <img src={iconROCKET}/>
-                            <div>
-                                <h5>Compliance</h5>
-                                <p>eSWIT ensures that you are compliant with <br/>relevant security regulations and standards.</p>
-                            </div>
-                        </div>
-                        <div className='Home_AdvancedAutomation_Text_Content'>
-                            <img src={iconTOOLS}/>
-                            <div>
-                                <h5>Regular updates</h5>
-                                <p>We release regular updates to eSWIT that include security enhancements,<br/> helping to keep your SAP system secure.</p>
-                            </div>
+                        <div className='Home_AdvancedAutomation_Img'>
+                            <img src={AdvancedAutomation}/>
                         </div>
                     </div>
-                    <div className='Home_AdvancedAutomation_Img'>
-                        <img src={AdvancedAutomation}/>
-                    </div>
-                </div>
-                <div className='Home_VerifiedCompliance'>
-                    <div className='Home_VerifiedCompliance_Img'>
-                        <img src={VerifiedCompliance}/>
-                    </div>
-                    <div className='Home_VerifiedCompliance_Text'>
-                        <h3>Verified compliance</h3>
-                        <h4>
-                        eSWIT helps you ensure compliance with relevant regulations and standards, <br/>protecting your business and its data.
-                        </h4>
-                        <div className='Home_VerifiedCompliance_Text_Content'>
-                            <img src={iconCHAT}/>
-                            <div>
-                                <h5>Secure access</h5>
-                                <p>Provides secure access to your SAP system, <br/>protecting against unauthorized access.</p>
-                            </div>
+                    <div className='Home_VerifiedCompliance'>
+                        <div className='Home_VerifiedCompliance_Img'>
+                            <img src={VerifiedCompliance}/>
                         </div>
-                        <div className='Home_VerifiedCompliance_Text_Content'>
-                            <img src={iconMEDAL}/>
-                            <div>
-                                <h5>Data protection</h5>
-                                <p>eSWIT helps you protect your data on SAP, <br/>keeping it safe from external threats.</p>
+                        <div className='Home_VerifiedCompliance_Text'>
+                            <h3>Verified compliance</h3>
+                            <h4>
+                            eSWIT has been thoroughly tested and reviewed, ensuring that it meets the highest standards of quality.
+                            </h4>
+                            <div className='Home_VerifiedCompliance_Text_Content'>
+                                <img src={iconCHAT}/>
+                                <div>
+                                    <h5>Extensive testing</h5>
+                                    <p>eSWIT has undergone extensive testing to ensure that it is reliable and effective</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='Home_VerifiedCompliance_Text_Content'>
-                            <img src={iconROCKET}/>
-                            <div>
-                                <h5>Compliance</h5>
-                                <p>eSWIT ensures that you are compliant with <br/>relevant security regulations and standards.</p>
+                            <div className='Home_VerifiedCompliance_Text_Content'>
+                                <img src={iconMEDAL}/>
+                                <div>
+                                    <h5>Expert review</h5>
+                                    <p>eSWIT has been reviewed by SAP experts, ensuring that it meets the highest standards of quality.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='Home_VerifiedCompliance_Text_Content'>
-                            <img src={iconTOOLS}/>
-                            <div>
-                                <h5>Regular updates</h5>
-                                <p>We release regular updates to eSWIT that include security enhancements,<br/> helping to keep your SAP system secure.</p>
+                            <div className='Home_VerifiedCompliance_Text_Content'>
+                                <img src={iconROCKET}/>
+                                <div>
+                                    <h5>Customer feedback</h5>
+                                    <p>We value our customers' feedback and use it to continually improve eSWIT</p>
+                                </div>
+                            </div>
+                            <div className='Home_VerifiedCompliance_Text_Content'>
+                                <img src={iconTOOLS}/>
+                                <div>
+                                    <h5>Regular updates</h5>
+                                    <p>We release regular updates to eSWIT, ensuring that it stays up-to-date and effective.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div className='Home_AdvancedAutomation'>
+                        <div className='Home_AdvancedAutomation_Text'>
+                            <h3>Quality readiness</h3>
+                            <h4>
+                            eSWIT has been thoroughly tested and reviewed, ensuring that it meets the highest standards of quality.
+                            </h4>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
+                                <img src={iconCHAT}/>
+                                <div>
+                                    <h5>Extensive testing</h5>
+                                    <p>eSWIT has undergone extensive testing to ensure that it is reliable and effective</p>
+                                </div>
+                            </div>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
+                                <img src={iconMEDAL}/>
+                                <div>
+                                    <h5>Expert review</h5>
+                                    <p>eSWIT has been reviewed by SAP experts, ensuring that it meets the highest standards of quality.</p>
+                                </div>
+                            </div>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
+                                <img src={iconROCKET}/>
+                                <div>
+                                    <h5>Customer feedback</h5>
+                                    <p>We value our customers' feedback and use it to continually improve eSWIT</p>
+                                </div>
+                            </div>
+                            <div className='Home_AdvancedAutomation_Text_Content'>
+                                <img src={iconTOOLS}/>
+                                <div>
+                                    <h5>Regular updates</h5>
+                                    <p>We release regular updates to eSWIT that include security enhancements,<br/> helping to keep your SAP system secure.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='Home_AdvancedAutomation_Img'>
+                            <img src={AdvancedAutomation}/>
+                        </div>
+                    </div>
+                </Slider>
+                    
+                
                 <div className='Home_Contact'>
                     <form onSubmit={this.handleSubmit}>
                         <h2>Wish to know more about eSWIT ?</h2>

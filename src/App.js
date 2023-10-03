@@ -7,7 +7,7 @@ import Home from './Views/Home';
 import Pricing from './Views/Pricing';
 import Solutions from './Views/Solutions';
 import Products from './Views/Products';
-
+import Contact from './Views/Contact';
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
             <Route path="/solutions" element={<Solutions/>} />
             <Route path="/products" element={<Products/>} />
             <Route path="/pricing" element={<Pricing/>} />
+            <Route path="/contact" element={<Contact/>} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
         <Footer/>

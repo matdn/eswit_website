@@ -20,8 +20,9 @@ const Header = () => {
             <nav>
                 <NavLink exact to="/" activeClassName="active-link"><h3>Home</h3></NavLink>
                 <NavLink to="/products" activeClassName="active-link"><h3>Products</h3></NavLink>
-                <NavLink to="/solutions" activeClassName="active-link"><h3>Solutions</h3></NavLink>
+                {/* <NavLink to="/solutions" activeClassName="active-link"><h3>Solutions</h3></NavLink> */}
                 <NavLink to="/pricing" activeClassName="active-link"><h3>Pricing</h3></NavLink>
+                <NavLink to="/contact" activeClassName="active-link"><h3>Contact</h3></NavLink>
             </nav>
         </div>
     );
