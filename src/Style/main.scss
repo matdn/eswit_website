@@ -39,28 +39,35 @@ body, html {
     overflow-x: hidden;
     .Home_Hero{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-wrap: wrap;
-        padding: 10% 0 14% 0;
+        padding: 10% 7%;
         background-image: url('../Assets/Images/BackGroundComplexite.png');
-        position: relative;
         .ShadowHero{
             position: absolute;
-            right: 10rem;
+            right: 0rem;
             top: 50%; 
             transform: translateY(-50%);
+            height: 120%;
         }
         .HeroDark{
             position: absolute;
             top: 50%; 
             transform: translateY(-50%);
-            right: 15rem;
+            right: 5rem;
+            width: 70%;
+        }
+        .Home_Hero_Img{
+            width: 50%;
+            position: relative;
+            display: block;
         }
         .Home_Hero_Text{
             text-align: left;
             align-items: start;
             display: flex;
             flex-direction: column;
+            width: 50%;
             h2{
                 font-size: 5rem;
                 font-weight: 300;
@@ -79,6 +86,7 @@ body, html {
                 margin-block-end: 1em;
             }
         }
+
     }
     .Home_Collaborateurs{
         padding: 3% 0;

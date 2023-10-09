@@ -78,7 +78,6 @@ class Home extends Component {
                     <div className='Home_Hero_Img'>
                         <img className='ShadowHero' src={ShadowHero}/>
                         <img className='HeroDark' src={HeroDark}/>
-                        
                     </div>
                 </div>
                 <div className='Home_Collaborateurs'>
