@@ -8,9 +8,23 @@ import Pricing from './Views/Pricing';
 import Solutions from './Views/Solutions';
 import Products from './Views/Products';
 import Contact from './Views/Contact';
+import React, { useState, useEffect } from 'react';
 function App() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <div className="App">
+      {loading ? (
+        <div className="loader-container">
+            <div className="spinner"></div>
+        </div>
+      ) : (
       <Router>
         <Header />
         <Routes>
@@ -23,6 +37,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      )}
     </div>
   );
 }

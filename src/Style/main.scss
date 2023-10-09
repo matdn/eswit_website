@@ -9,7 +9,7 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
     padding: 2% 7%;
     
     img{
@@ -526,7 +526,7 @@ body, html {
                 }
             }
             .Products_Finance_Text{
-                padding: 0 18% 0 0 !important;
+                padding: 0 18% 0 0 ;
             }
             .Products_GRC_Img, .Products_Finance_Img{
                 width: 50%;
@@ -543,12 +543,13 @@ body, html {
                 width: 50%;
                 color: black;
                 text-align: left;
-                padding: 0 0 0 12%;
+                // padding: 0 0 0 12%;
             }
         }
         .Products_GRC_Img{
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 2rem;
         }
     }
@@ -647,4 +648,110 @@ body, html {
 
 .slick-track{
     height: 70vh !important;
+}
+
+.loader-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #0057FF transparent #0057FF transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+
+
+.Header_Nav nav.burger-menu {
+    display: none; 
+}
+
+
+.burger-button {
+    display: none;
+    .bar{
+        display: block; 
+        height: 4px;
+        width: 2rem;
+        background-color: #0057FF;
+        border-radius: 10px;
+        margin: 4px 0;
+        padding: 0;
+    }
+}
+.home-page-burger{
+    .bar{
+        background-color: white !important;
+    }
+}
+nav{
+    div{
+        display: flex;
+        padding: 1rem 7%;
+        gap: 2rem;
+    }
+}
+
+.burger-content-visible{
+    display: flex;
+    flex-direction: column;
+    gap:0;
+}
+
+.burger-content-hidden{
+    display: none;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Home_Hero_Img, .Products_Hero_Img{
+        display: none !important;
+    }
+    .Home_Hero_Text{
+        width: 100% !important;
+    }
+    .Home_Presentation{
+        flex-direction: column-reverse;
+        width: 70%;
+    }
+    .burger-button{
+        display: block;
+    }
+    .Header_Nav nav.burger-menu {
+        display: block; 
+    }
+    .fullScreenNav{
+        display: none !important;
+    }
+    .Products_Hero_Text, .Products_GRC_Text, .Products_Finance_Text{
+        width: 70% !important;
+        padding: 0 !important;
+    }
+    .Products_GRC_Content, .Products_Finance_Content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .Products{
+        img{
+            width: 100%;
+        }
+    }
 }

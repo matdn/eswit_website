@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
 import productsHero from '../Assets/Images/productsHero.png';
 import Pres from '../Assets/Images/PRESimg.png';
 import ProductAsset1 from '../Assets/Images/ProductAsset1.png';
 import ProductAsset2 from '../Assets/Images/ProductAsset2.png';
 import ProductAsset3 from '../Assets/Images/ProductAsset3.png';
+import {Link} from 'react-router-dom'
 export default function Products() {
     return (
         <div className='Products'>
@@ -14,7 +14,7 @@ export default function Products() {
                         <h1>Products</h1>
                         <h4>At eSWIT, we believe that using SAP  should be simple and enjoyable !</h4>
                         <h2>That's why we've developed a product porfolio that brings back simplicity and user delight  to the SAP experience.</h2>
-                        <input className="Button" type='button' value='->  Discover our offers' />
+                        <Link to="/pricing"><input className="Button" type='button' value='->  Discover our offers' /></Link>
                     </div>
                     <div className='Products_Hero_Img'>
                         <img className='HeroDark' src={productsHero} />

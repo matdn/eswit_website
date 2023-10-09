@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import HeroDark from '../Assets/Images/HeroDark.png';
 import ShadowHero from '../Assets/Images/ShadowHero.png';
 import ContactLogo from '../Assets/Images/ContactLogo.png';
-import logoLV from '../Assets/Images/LVlogo.png';
+import logoLV from '../Assets/Images/LVMH Logo.jpg';
 import logoPO from '../Assets/Images/POlogo.png';
 import logoKR from '../Assets/Images/KRlogo.png';
 import Pres from '../Assets/Images/PRESimg.png';
@@ -17,6 +17,7 @@ import iconCHAT from '../Assets/Images/icon _chat.svg';
 import iconMEDAL from '../Assets/Images/icon _medal.svg';
 import iconROCKET from '../Assets/Images/icon _rocket.svg';
 import iconTOOLS from '../Assets/Images/icon _tools.svg';
+
 import { Link } from 'react-router-dom';
 class Home extends Component {
     constructor(props) {
