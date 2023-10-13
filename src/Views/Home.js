@@ -34,6 +34,31 @@ class Home extends Component {
         };
         this.sliderRef = React.createRef();
     }
+
+    componentDidMount() {
+        // Vérifier si l'utilisateur est sur un écran tactile en version mobile
+        if ('ontouchstart' in document.documentElement && window.innerWidth <= 768) {
+            // Ajouter un attribut style pour permettre le scrolling "grab"
+            const sliderElement = this.sliderRef.current;
+            if (sliderElement) {
+                // Trouver le premier enfant de Slider (peut varier en fonction de votre structure)
+                const sliderFirstChild = sliderElement.querySelector('.slick-list');
+                if (sliderFirstChild) {
+                    sliderFirstChild.addEventListener('mousedown', () => {
+                        sliderFirstChild.style.cursor = 'grabbing';
+                    });
+                    sliderFirstChild.addEventListener('mouseup', () => {
+                        sliderFirstChild.style.cursor = 'grab';
+                    });
+                    sliderFirstChild.addEventListener('mouseleave', () => {
+                        sliderFirstChild.style.cursor = 'grab';
+                    });
+                }
+            }
+        }
+    }
+
+
     handleNumberClick = (number) => {
         this.setState({ selectedNumber: number });
     };

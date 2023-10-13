@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink, useLocation } from 'react-router-dom';
 import LogoBlack from '../Assets/Images/LogoBlack.png';
 import LogoWhite from '../Assets/Images/LogoWhite.png';
-
+import cross from '../Assets/Images/cross.svg'
 const Header = () => {
     const location = useLocation();
     console.log("Pathname:", location.pathname); 
@@ -35,11 +35,15 @@ const Header = () => {
                     <div className={`bar ${showBurgerMenu ? 'open' : ''}`}></div>
                 </div>
                 <div className={showBurgerMenu ? 'burger-content-visible' : 'burger-content-hidden'}>
-                    <NavLink exact to="/" activeClassName="active-link"><h3>Home</h3></NavLink>
-                    <NavLink to="/products" activeClassName="active-link"><h3>Products</h3></NavLink>
-                    <NavLink to="/pricing" activeClassName="active-link"><h3>Pricing</h3></NavLink>
-                    <NavLink to="/contact" activeClassName="active-link"><h3>Contact</h3></NavLink>
-                </div>    
+                    <div className='cross' onClick={toggleBurgerMenu} >
+                        <img src={cross}></img>
+                    </div>  
+                    <NavLink onClick={toggleBurgerMenu} exact to="/" activeClassName="active-link"><h3>Home</h3></NavLink>
+                    <NavLink onClick={toggleBurgerMenu} to="/products" activeClassName="active-link"><h3>Products</h3></NavLink>
+                    <NavLink onClick={toggleBurgerMenu} to="/pricing" activeClassName="active-link"><h3>Pricing</h3></NavLink>
+                    <NavLink onClick={toggleBurgerMenu} to="/contact" activeClassName="active-link"><h3>Contact</h3></NavLink>
+                </div>  
+                
             </nav>
         </div>
     );

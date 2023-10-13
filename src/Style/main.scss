@@ -86,11 +86,11 @@ body, html {
                 margin-block-end: 1em;
             }
         }
-
     }
     .Home_Collaborateurs{
         padding: 3% 0;
         display: flex;
+        
         justify-content: space-around;
         flex-wrap: wrap;
         align-items: start;
@@ -105,6 +105,7 @@ body, html {
         }
         .Home_Collaborateurs_Img{
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 2rem;
             img{
@@ -142,6 +143,7 @@ body, html {
         }
     }
     .Home_Quality_Header{
+        padding: 0 7%;
         h2{
             font-size: 2.5rem;
             margin: none !important;
@@ -670,12 +672,9 @@ body, html {
     animation: spin-anim 1.2s linear infinite;
 }
 
-
-
 .Header_Nav nav.burger-menu {
     display: none; 
 }
-
 
 .burger-button {
     display: none;
@@ -697,7 +696,6 @@ body, html {
 nav{
     div{
         display: flex;
-        padding: 1rem 7%;
         gap: 2rem;
     }
 }
@@ -711,7 +709,9 @@ nav{
 .burger-content-hidden{
     display: none;
 }
-
+.Button, .carousel-controls button{
+    font-weight: 500 !important;
+}
 @keyframes spin-anim {
     0% {
         transform: rotate(0deg);
@@ -722,6 +722,9 @@ nav{
 }
 
 @media screen and (max-width: 800px) {
+    .Contact{
+        height: auto !important;
+    }
     .Home_Hero_Img, .Products_Hero_Img{
         display: none !important;
     }
@@ -732,6 +735,23 @@ nav{
         flex-direction: column-reverse;
         width: 70%;
     }
+    .Home_Presentation_Text{
+        width: 80% !important;
+    }
+    .burger-content-visible{
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        color: #0057FF;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        z-index: 10;
+    }
     .burger-button{
         display: block;
     }
@@ -741,6 +761,9 @@ nav{
     .fullScreenNav{
         display: none !important;
     }
+    .Home_Collaborateurs_Img{
+        flex-direction: column;
+    }
     .Products_Hero_Text, .Products_GRC_Text, .Products_Finance_Text{
         width: 70% !important;
         padding: 0 !important;
@@ -749,9 +772,77 @@ nav{
         flex-direction: column;
         align-items: center;
     }
+    .Home_VerifiedCompliance, .Home_EnhancedSecurity, .Home_EnhancedSecurity_Content{
+        justify-content: center !important;
+    }
+    .Home_EnhancedSecurity_Img, .Home_VerifiedCompliance_Img, .Home_AdvancedAutomation_Img{
+        display: none !important;
+    }
+    .Home_Presentation{
+        padding: 0 !important;
+    }
+    .Home_Presentation_Img{
+        width: 70% !important;
+        margin: 6rem;
+    }
+    .Home_VerifiedCompliance_Text, .Home_EnhancedSecurity_Text, .Home_AdvancedAutomation_Text{
+        width: 70% !important;
+        padding: 0 ;
+    }
     .Products{
         img{
             width: 100%;
         }
+    }
+    .Products_Hero{
+        margin: 0 0 12rem 0;
+    }
+    .carousel-controls{
+        display: none !important;
+    }
+    .Products_GRC_Img, .Products_Finance_Img{
+        width: 70% !important;
+        margin: 2rem 0;
+    }
+    .section{
+        height: auto !important;
+        padding: 0 !important;
+    }
+    .Products_Finance, .Products_GRC{
+        margin: 6rem 0 !important;
+    }
+    .Products_Finance_Content{
+        flex-direction: column-reverse;
+    }
+    .cross{
+        position: absolute;
+        top:10px;
+        right: 20px;
+        img{
+            width: 2rem;
+        }
+    }
+    .home-page-class{
+        h3{
+            color: black;
+        }
+    }
+    .Pricing_Hero{
+        flex-direction: column;
+        align-items: center;
+        .Pricing_Hero_Text{
+            width: 80%;
+        }
+        .Pricing_Hero_Cards{
+            width: 90% !important;
+        }
+    }
+    form{
+        textarea, input[type="email"]{
+            width: 15rem !important;
+        }
+    }
+    .Contact_Hero_Img{
+        display: none !important;
     }
 }
